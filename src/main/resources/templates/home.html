@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Криптовалютный Кошелек</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #e0e0e0;
+      background-image: url('https://via.placeholder.com/1500x1500/cccccc/ffffff?text=Background'); /* Замените на реальный фон */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    button {
+      padding: 20px 40px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 12px;
+      background-color: #4CAF50;
+      color: white;
+      transition: background-color 0.3s, transform 0.3s;
+      width: 300px; /* Увеличен размер кнопок */
+    }
+
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.1); /* Увеличение кнопок при наведении */
+    }
+
+    .exit-button {
+      background-color: #f44336;
+      font-size: 14px;
+      padding: 10px 20px;
+      width: 150px;
+      margin-top: 30px;
+      opacity: 0.7; /* Сделано менее заметным */
+      transition: opacity 0.3s;
+    }
+
+    .exit-button:hover {
+      opacity: 1;
+      background-color: #d32f2f;
+    }
+
+  </style>
+</head>
+<body>
+<div class="button-container">
+  <button id="createTransactionButton">Создать транзакцию</button>
+  <button id="viewBalanceButton">Посмотреть баланс</button>
+  <button id="getCryptoButton">Получить криптовалюту</button>
+</div>
+<button class="exit-button" id="layoutButton">Layout (выйти)</button>
+
+<script>
+  document.getElementById('createTransactionButton').addEventListener('click', function() {
+    alert("Открыть форму для создания транзакции.");
+  });
+
+  document.getElementById('viewBalanceButton').addEventListener('click', function() {
+    alert("Показать текущий баланс.");
+  });
+
+  document.getElementById('getCryptoButton').addEventListener('click', function() {
+    alert("Открыть форму для получения криптовалюты.");
+  });
+
+  document.getElementById('layoutButton').addEventListener('click', function() {
+    window.location.href = 'http://localhost:8080/login'; // Замените на нужный URL для выхода
+  });
+</script>
+</body>
+</html>

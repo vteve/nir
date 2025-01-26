@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+
+    input {
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    input:focus {
+      outline: none;
+      border: 1px solid #ff9a9e;
+      box-shadow: 0 0 5px rgba(255, 154, 158, 0.5);
+    }
+
+    button {
+      background: #ff9a9e;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #f88989;
+    }
+
+    .login-link {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #ff9a9e;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    .message {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .message.error {
+      color: #e74c3c;
+    }
+
+    .message.success {
+      color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Register</h1>
+  <form th:action="@{/register}" method="post">
+    <!-- Поле для имени пользователя -->
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+    <!-- Поле для пароля -->
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+    <!-- Кнопка отправки формы -->
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- Сообщения об ошибках или успехе -->
+  <div th:if="${error}" class="message error" th:text="${error}"></div>
+  <div th:if="${success}" class="message success" th:text="${success}"></div>
+
+  <!-- Ссылка на страницу входа -->
+  <div class="login-link">
+    <p>Already have an account? <a th:href="@{/login}">Login here</a></p>
+  </div>
+</div>
+</body>
+</html>
